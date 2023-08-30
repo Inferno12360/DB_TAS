@@ -1,2 +1,3 @@
 # DB_TAS
-Datenbank Projekt zur Erstellung 
+Datenbank Projekt TAS zur Erstellung.
+Dokumentation in "Doku".
