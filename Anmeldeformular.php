@@ -75,7 +75,6 @@
                 <label for="vorname">Vorname:</label>
                 <input type="text" id="vorname" name="vorname" required>
             </div>
-            <p>huansohn</p>
             <div class="form-group">
                 <label for="nachname">Nachname:</label>
                 <input type="text" id="nachname" name="nachname" required>
