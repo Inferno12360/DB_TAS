@@ -20,7 +20,7 @@
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
             padding: 20px;
-            width: 300px;
+            width: 950px;
         }
 
         h2 {
@@ -58,34 +58,78 @@
         input[type="submit"]:hover {
             background-color: #0056b3;
         }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: auto auto auto;
+            padding: 60px;
+        }
+
+        .grid-item {
+            background-color: rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            font-size: 30px;
+            text-align: center;
+        }
+     
     </style>
 </head>
-<body>
+<body>  
+    <script>
+        var techButton = document.getElementById('radio-techy');
+var nonTechButton = document.getElementById('radio-non-techy');
+
+techButton.onclick = function () {
+    document.getElementById('select-div').className = 'tech';
+}
+nonTechButton.onclick = function () {
+    document.getElementById('select-div').className = 'non-tech';
+}
+</script>
     <div class="container">
         <h2>Personeninformationen</h2>
         <form action="#" method="post">
             <div>
-                <label for="geschlecht">Geschlecht:</label>
-                <select id="geschlecht" name="geschlecht">
-                    <option value="männlich">Männlich</option>
-                    <option value="weiblich">Weiblich</option>
-                </select>
-            </div>
-            <div>
-                <input type="text" id="vorname" placeholder="Vorname" name="vorname" required>
-            </div>
-            <div>
-                <input type="text" id="nachname" placeholder="Nachname" name="nachname" required>
-            </div>
-            <div class="form-group">
-                <input type="radio" id="Kurs1" name="Kurs1" value="Kurs1">
-                <label for="Kurs1">Kurs1</lable><br>
-                <input type="radio" id="Kurs2" name="Kurs2" value="Kurs2">
-                <label for="Kurs2">Kurs2</lable><br>
-                <input type="radio" id="Kurs3" name="Kurs3" value="Kurs3">
-                <label for="Kurs3">Kurs3</lable><br>
-            </div>
-            <div>
+                <div class="grid-container">
+                    <div class="grid-item">
+                        <div>
+                            <label for="geschlecht">Geschlecht:</label>
+                                <select id="geschlecht" name="geschlecht">
+                                    <option value="männlich">Männlich</option>
+                                    <option value="weiblich">Weiblich</option>
+                                </select>
+                            </div>
+                            <div>
+                            <input type="text" id="vorname" placeholder="Vorname" name="vorname" required>
+                            </div>
+                                <div>
+                                    <input type="text" id="nachname" placeholder="Nachname" name="nachname" required>
+                                </div>
+                            </div>
+                            <div class="grid-item">
+                                <div class="form-group">
+                                    <label for="Kurs1">GG2WE5 <br>(Blockzeitraum A)</lable><br>    
+                                    <input type="radio" id="Kurs1" name="Kurs" value="Kurs1">
+                                    <label for="Kurs2">GG2WE5 <br>(Blockzeitraum B)</lable><br>
+                                    <input type="radio" id="Kurs2" name="Kurs" value="Kurs2">
+                                    <label for="Kurs3">GG2WE5 <br>(Blockzeitraum C)</lable><br>
+                                    <input type="radio" id="Kurs3" name="Kurs" value="Kurs3">
+                                </div>
+                            </div>
+                            <?php
+$t = date("H");
+
+if ($t < "20") {
+  echo "Have a good day!";
+}
+?>
+                            <div class="grid-item">
+                                <label for="Kosten"></label>
+                                <b>Kosten</b><break>
+                                <p>10.00 €</p>
+                         </div>
+                </div>
                 <input type="submit" value="Absenden">
             </div>
         </form>
