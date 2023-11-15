@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 27. Sep 2023 um 07:58
+-- Erstellungszeit: 15. Nov 2023 um 08:47
 -- Server-Version: 10.4.22-MariaDB
 -- PHP-Version: 8.1.2
 
@@ -34,19 +34,21 @@ CREATE TABLE `tbl_betrieb` (
   `Tel` int(11) DEFAULT NULL,
   `Strasse` varchar(90) DEFAULT NULL,
   `Hausnummer` int(11) DEFAULT NULL,
-  `FK_Ort` int(11) DEFAULT NULL
+  `PLZ` int(11) NOT NULL,
+  `Ort` varchar(50) NOT NULL,
+  `Land` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Daten für Tabelle `tbl_betrieb`
 --
 
-INSERT INTO `tbl_betrieb` (`PK_Betrieb`, `Name`, `EMail`, `Tel`, `Strasse`, `Hausnummer`, `FK_Ort`) VALUES
-(1, 'Firma A', 'firma_a@example.com', 123456789, 'Musterstraße', 123, NULL),
-(2, 'Firma B', 'firma_b@example.com', 987654321, 'Hauptstraße', 456, NULL),
-(3, 'Firma C', 'firma_c@example.com', 555555555, 'Nebengasse', 789, NULL),
-(4, 'Firma D', 'firma_d@example.com', 111111111, 'Marktplatz', 1011, NULL),
-(5, 'Firma E', 'firma_e@example.com', 999999999, 'Testweg', 1213, NULL);
+INSERT INTO `tbl_betrieb` (`PK_Betrieb`, `Name`, `EMail`, `Tel`, `Strasse`, `Hausnummer`, `PLZ`, `Ort`, `Land`) VALUES
+(1, 'Firma A', 'firma_a@example.com', 123456789, 'Musterstraße', 123, 0, '', ''),
+(2, 'Firma B', 'firma_b@example.com', 987654321, 'Hauptstraße', 456, 0, '', ''),
+(3, 'Firma C', 'firma_c@example.com', 555555555, 'Nebengasse', 789, 0, '', ''),
+(4, 'Firma D', 'firma_d@example.com', 111111111, 'Marktplatz', 1011, 0, '', ''),
+(5, 'Firma E', 'firma_e@example.com', 999999999, 'Testweg', 1213, 0, '', '');
 
 -- --------------------------------------------------------
 
@@ -63,8 +65,10 @@ CREATE TABLE `tbl_dozent` (
   `Strasse` varchar(90) DEFAULT NULL,
   `Hausnummer` tinyint(4) DEFAULT NULL,
   `Steuernummer` int(11) DEFAULT NULL,
+  `PLZ` int(11) NOT NULL,
+  `Ort` varchar(50) NOT NULL,
+  `Land` varchar(50) NOT NULL,
   `FK_Vertrag` int(11) DEFAULT NULL,
-  `FK_Ort` int(11) DEFAULT NULL,
   `FK_Kurs` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -72,12 +76,12 @@ CREATE TABLE `tbl_dozent` (
 -- Daten für Tabelle `tbl_dozent`
 --
 
-INSERT INTO `tbl_dozent` (`PK_Dozent`, `Vorname`, `Nachname`, `Anrede`, `Kuerzel`, `Strasse`, `Hausnummer`, `Steuernummer`, `FK_Vertrag`, `FK_Ort`, `FK_Kurs`) VALUES
-(1, 'Max', 'Mustermann', 'Herr', 'MM', 'Musterstraße', 1, 123456789, NULL, NULL, NULL),
-(2, 'Anna', 'Schmidt', 'Frau', 'AS', 'Hauptstraße', 2, 987654321, NULL, NULL, NULL),
-(3, 'Peter', 'Müller', 'Herr', 'PM', 'Nebengasse', 3, 555555555, NULL, NULL, NULL),
-(4, 'Sabine', 'Schulz', 'Frau', 'SS', 'Marktplatz', 4, 111111111, NULL, NULL, NULL),
-(5, 'Michael', 'Meier', 'Herr', 'MM', 'Testweg', 5, 999999999, NULL, NULL, NULL);
+INSERT INTO `tbl_dozent` (`PK_Dozent`, `Vorname`, `Nachname`, `Anrede`, `Kuerzel`, `Strasse`, `Hausnummer`, `Steuernummer`, `PLZ`, `Ort`, `Land`, `FK_Vertrag`, `FK_Kurs`) VALUES
+(1, 'Max', 'Mustermann', 'Herr', 'MM', 'Musterstraße', 1, 123456789, 0, '', '', NULL, NULL),
+(2, 'Anna', 'Schmidt', 'Frau', 'AS', 'Hauptstraße', 2, 987654321, 0, '', '', NULL, NULL),
+(3, 'Peter', 'Müller', 'Herr', 'PM', 'Nebengasse', 3, 555555555, 0, '', '', NULL, NULL),
+(4, 'Sabine', 'Schulz', 'Frau', 'SS', 'Marktplatz', 4, 111111111, 0, '', '', NULL, NULL),
+(5, 'Michael', 'Meier', 'Herr', 'MM', 'Testweg', 5, 999999999, 0, '', '', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -134,6 +138,11 @@ INSERT INTO `tbl_kurs_dozent` (`Datum`, `PDF_Link`, `FK_Dozent`, `FK_Kurs`) VALU
 ('0000-00-00 00:00:00', 'kurs2.pdf', NULL, NULL),
 ('0000-00-00 00:00:00', 'kurs3.pdf', NULL, NULL),
 ('0000-00-00 00:00:00', 'kurs4.pdf', NULL, NULL),
+('0000-00-00 00:00:00', 'kurs5.pdf', NULL, NULL),
+('0000-00-00 00:00:00', 'kurs1.pdf', NULL, NULL),
+('0000-00-00 00:00:00', 'kurs2.pdf', NULL, NULL),
+('0000-00-00 00:00:00', 'kurs3.pdf', NULL, NULL),
+('0000-00-00 00:00:00', 'kurs4.pdf', NULL, NULL),
 ('0000-00-00 00:00:00', 'kurs5.pdf', NULL, NULL);
 
 -- --------------------------------------------------------
@@ -159,31 +168,12 @@ INSERT INTO `tbl_kurs_teilnehmer` (`Anfangszeit`, `Endzeit`, `Rechnungsart`, `FK
 ('0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, NULL, NULL),
 ('0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, NULL, NULL),
 ('0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, NULL, NULL),
+('0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, NULL, NULL),
+('0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, NULL, NULL),
+('0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, NULL, NULL),
+('0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, NULL, NULL),
+('0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, NULL, NULL),
 ('0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, NULL, NULL);
-
--- --------------------------------------------------------
-
---
--- Tabellenstruktur für Tabelle `tbl_ort`
---
-
-CREATE TABLE `tbl_ort` (
-  `PK_Ort` int(11) NOT NULL,
-  `PLZ` int(11) DEFAULT NULL,
-  `Ort` varchar(90) DEFAULT NULL,
-  `Land` varchar(90) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Daten für Tabelle `tbl_ort`
---
-
-INSERT INTO `tbl_ort` (`PK_Ort`, `PLZ`, `Ort`, `Land`) VALUES
-(1, 1010, 'Stadt A', 'Deutschland'),
-(2, 2020, 'Stadt B', 'Deutschland'),
-(3, 3030, 'Stadt C', 'Deutschland'),
-(4, 4040, 'Stadt D', 'Deutschland'),
-(5, 5050, 'Stadt E', 'Deutschland');
 
 -- --------------------------------------------------------
 
@@ -232,19 +222,21 @@ CREATE TABLE `tbl_teilnehmer` (
   `Hausnummer` tinyint(4) DEFAULT NULL,
   `Strasse` varchar(90) DEFAULT NULL,
   `Rechnungsstellung` varchar(90) DEFAULT NULL,
-  `FK_Ort` int(11) DEFAULT NULL
+  `PLZ` int(11) NOT NULL,
+  `Ort` varchar(50) NOT NULL,
+  `Land` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Daten für Tabelle `tbl_teilnehmer`
 --
 
-INSERT INTO `tbl_teilnehmer` (`PK_Teilnehmer`, `Vorname`, `Nachname`, `Anrede`, `EMail`, `Telefon`, `Hausnummer`, `Strasse`, `Rechnungsstellung`, `FK_Ort`) VALUES
-(1, 'Lisa', 'Schulz', 'Frau', 'lisa@example.com', 111222333, 1, 'Musterstraße', 'Firma A', NULL),
-(2, 'Tim', 'Müller', 'Herr', 'tim@example.com', 444555666, 2, 'Hauptstraße', 'Firma B', NULL),
-(3, 'Laura', 'Wagner', 'Frau', 'laura@example.com', 777888999, 3, 'Nebengasse', 'Firma C', NULL),
-(4, 'David', 'Becker', 'Herr', 'david@example.com', 123456789, 4, 'Marktplatz', 'Firma D', NULL),
-(5, 'Sophie', 'Hoffmann', 'Frau', 'sophie@example.com', 987654321, 5, 'Testweg', 'Firma E', NULL);
+INSERT INTO `tbl_teilnehmer` (`PK_Teilnehmer`, `Vorname`, `Nachname`, `Anrede`, `EMail`, `Telefon`, `Hausnummer`, `Strasse`, `Rechnungsstellung`, `PLZ`, `Ort`, `Land`) VALUES
+(1, 'Lisa', 'Schulz', 'Frau', 'lisa@example.com', 111222333, 1, 'Musterstraße', 'Firma A', 0, '', '0'),
+(2, 'Tim', 'Müller', 'Herr', 'tim@example.com', 444555666, 2, 'Hauptstraße', 'Firma B', 0, '', '0'),
+(3, 'Laura', 'Wagner', 'Frau', 'laura@example.com', 777888999, 3, 'Nebengasse', 'Firma C', 0, '', '0'),
+(4, 'David', 'Becker', 'Herr', 'david@example.com', 123456789, 4, 'Marktplatz', 'Firma D', 0, '', '0'),
+(5, 'Sophie', 'Hoffmann', 'Frau', 'sophie@example.com', 987654321, 5, 'Testweg', 'Firma E', 0, '', '0');
 
 -- --------------------------------------------------------
 
@@ -277,8 +269,7 @@ INSERT INTO `tbl_vertrag` (`PK_Vertrag`, `Honorar`, `Kursumfang`) VALUES
 -- Indizes für die Tabelle `tbl_betrieb`
 --
 ALTER TABLE `tbl_betrieb`
-  ADD PRIMARY KEY (`PK_Betrieb`),
-  ADD KEY `FK_Ort` (`FK_Ort`);
+  ADD PRIMARY KEY (`PK_Betrieb`);
 
 --
 -- Indizes für die Tabelle `tbl_dozent`
@@ -286,7 +277,6 @@ ALTER TABLE `tbl_betrieb`
 ALTER TABLE `tbl_dozent`
   ADD PRIMARY KEY (`PK_Dozent`),
   ADD KEY `FK_Vertrag` (`FK_Vertrag`),
-  ADD KEY `FK_Ort` (`FK_Ort`),
   ADD KEY `FK_Kurs` (`FK_Kurs`);
 
 --
@@ -310,12 +300,6 @@ ALTER TABLE `tbl_kurs_teilnehmer`
   ADD KEY `FK_Teilnehmer` (`FK_Teilnehmer`);
 
 --
--- Indizes für die Tabelle `tbl_ort`
---
-ALTER TABLE `tbl_ort`
-  ADD PRIMARY KEY (`PK_Ort`);
-
---
 -- Indizes für die Tabelle `tbl_rechnung`
 --
 ALTER TABLE `tbl_rechnung`
@@ -327,8 +311,7 @@ ALTER TABLE `tbl_rechnung`
 -- Indizes für die Tabelle `tbl_teilnehmer`
 --
 ALTER TABLE `tbl_teilnehmer`
-  ADD PRIMARY KEY (`PK_Teilnehmer`),
-  ADD KEY `FK_Ort` (`FK_Ort`);
+  ADD PRIMARY KEY (`PK_Teilnehmer`);
 
 --
 -- Indizes für die Tabelle `tbl_vertrag`
@@ -359,12 +342,6 @@ ALTER TABLE `tbl_kurs`
   MODIFY `PK_Kurs` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT für Tabelle `tbl_ort`
---
-ALTER TABLE `tbl_ort`
-  MODIFY `PK_Ort` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
 -- AUTO_INCREMENT für Tabelle `tbl_rechnung`
 --
 ALTER TABLE `tbl_rechnung`
@@ -387,23 +364,14 @@ ALTER TABLE `tbl_vertrag`
 --
 
 --
--- Constraints der Tabelle `tbl_betrieb`
---
-ALTER TABLE `tbl_betrieb`
-  ADD CONSTRAINT `tbl_betrieb_ibfk_1` FOREIGN KEY (`FK_Ort`) REFERENCES `tbl_ort` (`PK_Ort`);
-
---
 -- Constraints der Tabelle `tbl_dozent`
 --
 ALTER TABLE `tbl_dozent`
   ADD CONSTRAINT `tbl_dozent_ibfk_1` FOREIGN KEY (`FK_Vertrag`) REFERENCES `tbl_vertrag` (`PK_Vertrag`),
-  ADD CONSTRAINT `tbl_dozent_ibfk_2` FOREIGN KEY (`FK_Ort`) REFERENCES `tbl_ort` (`PK_Ort`),
   ADD CONSTRAINT `tbl_dozent_ibfk_3` FOREIGN KEY (`FK_Kurs`) REFERENCES `tbl_kurs` (`PK_Kurs`),
   ADD CONSTRAINT `tbl_dozent_ibfk_4` FOREIGN KEY (`FK_Vertrag`) REFERENCES `tbl_vertrag` (`PK_Vertrag`),
-  ADD CONSTRAINT `tbl_dozent_ibfk_5` FOREIGN KEY (`FK_Ort`) REFERENCES `tbl_ort` (`PK_Ort`),
   ADD CONSTRAINT `tbl_dozent_ibfk_6` FOREIGN KEY (`FK_Kurs`) REFERENCES `tbl_kurs` (`PK_Kurs`),
   ADD CONSTRAINT `tbl_dozent_ibfk_7` FOREIGN KEY (`FK_Vertrag`) REFERENCES `tbl_vertrag` (`PK_Vertrag`),
-  ADD CONSTRAINT `tbl_dozent_ibfk_8` FOREIGN KEY (`FK_Ort`) REFERENCES `tbl_ort` (`PK_Ort`),
   ADD CONSTRAINT `tbl_dozent_ibfk_9` FOREIGN KEY (`FK_Kurs`) REFERENCES `tbl_kurs` (`PK_Kurs`);
 
 --
@@ -426,12 +394,6 @@ ALTER TABLE `tbl_kurs_teilnehmer`
 ALTER TABLE `tbl_rechnung`
   ADD CONSTRAINT `tbl_rechnung_ibfk_1` FOREIGN KEY (`FK_Betrieb`) REFERENCES `tbl_betrieb` (`PK_Betrieb`),
   ADD CONSTRAINT `tbl_rechnung_ibfk_2` FOREIGN KEY (`FK_Teilnehmer`) REFERENCES `tbl_teilnehmer` (`PK_Teilnehmer`);
-
---
--- Constraints der Tabelle `tbl_teilnehmer`
---
-ALTER TABLE `tbl_teilnehmer`
-  ADD CONSTRAINT `tbl_teilnehmer_ibfk_1` FOREIGN KEY (`FK_Ort`) REFERENCES `tbl_ort` (`PK_Ort`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
