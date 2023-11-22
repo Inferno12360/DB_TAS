@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 15. Nov 2023 um 08:47
+-- Erstellungszeit: 22. Nov 2023 um 08:02
 -- Server-Version: 10.4.22-MariaDB
 -- PHP-Version: 8.1.2
 
@@ -224,19 +224,20 @@ CREATE TABLE `tbl_teilnehmer` (
   `Rechnungsstellung` varchar(90) DEFAULT NULL,
   `PLZ` int(11) NOT NULL,
   `Ort` varchar(50) NOT NULL,
-  `Land` varchar(50) NOT NULL
+  `Land` varchar(50) NOT NULL,
+  `Teilnahmestatus` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Daten für Tabelle `tbl_teilnehmer`
 --
 
-INSERT INTO `tbl_teilnehmer` (`PK_Teilnehmer`, `Vorname`, `Nachname`, `Anrede`, `EMail`, `Telefon`, `Hausnummer`, `Strasse`, `Rechnungsstellung`, `PLZ`, `Ort`, `Land`) VALUES
-(1, 'Lisa', 'Schulz', 'Frau', 'lisa@example.com', 111222333, 1, 'Musterstraße', 'Firma A', 0, '', '0'),
-(2, 'Tim', 'Müller', 'Herr', 'tim@example.com', 444555666, 2, 'Hauptstraße', 'Firma B', 0, '', '0'),
-(3, 'Laura', 'Wagner', 'Frau', 'laura@example.com', 777888999, 3, 'Nebengasse', 'Firma C', 0, '', '0'),
-(4, 'David', 'Becker', 'Herr', 'david@example.com', 123456789, 4, 'Marktplatz', 'Firma D', 0, '', '0'),
-(5, 'Sophie', 'Hoffmann', 'Frau', 'sophie@example.com', 987654321, 5, 'Testweg', 'Firma E', 0, '', '0');
+INSERT INTO `tbl_teilnehmer` (`PK_Teilnehmer`, `Vorname`, `Nachname`, `Anrede`, `EMail`, `Telefon`, `Hausnummer`, `Strasse`, `Rechnungsstellung`, `PLZ`, `Ort`, `Land`, `Teilnahmestatus`) VALUES
+(1, 'Lisa', 'Schulz', 'Frau', 'lisa@example.com', 111222333, 1, 'Musterstraße', 'Firma A', 0, '', '0', NULL),
+(2, 'Tim', 'Müller', 'Herr', 'tim@example.com', 444555666, 2, 'Hauptstraße', 'Firma B', 0, '', '0', NULL),
+(3, 'Laura', 'Wagner', 'Frau', 'laura@example.com', 777888999, 3, 'Nebengasse', 'Firma C', 0, '', '0', NULL),
+(4, 'David', 'Becker', 'Herr', 'david@example.com', 123456789, 4, 'Marktplatz', 'Firma D', 0, '', '0', NULL),
+(5, 'Sophie', 'Hoffmann', 'Frau', 'sophie@example.com', 987654321, 5, 'Testweg', 'Firma E', 0, '', '0', NULL);
 
 -- --------------------------------------------------------
 
