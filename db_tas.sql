@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 22. Nov 2023 um 08:02
+-- Erstellungszeit: 29. Nov 2023 um 14:20
 -- Server-Version: 10.4.22-MariaDB
 -- PHP-Version: 8.1.2
 
@@ -68,20 +68,19 @@ CREATE TABLE `tbl_dozent` (
   `PLZ` int(11) NOT NULL,
   `Ort` varchar(50) NOT NULL,
   `Land` varchar(50) NOT NULL,
-  `FK_Vertrag` int(11) DEFAULT NULL,
-  `FK_Kurs` int(11) DEFAULT NULL
+  `FK_Vertrag` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Daten für Tabelle `tbl_dozent`
 --
 
-INSERT INTO `tbl_dozent` (`PK_Dozent`, `Vorname`, `Nachname`, `Anrede`, `Kuerzel`, `Strasse`, `Hausnummer`, `Steuernummer`, `PLZ`, `Ort`, `Land`, `FK_Vertrag`, `FK_Kurs`) VALUES
-(1, 'Max', 'Mustermann', 'Herr', 'MM', 'Musterstraße', 1, 123456789, 0, '', '', NULL, NULL),
-(2, 'Anna', 'Schmidt', 'Frau', 'AS', 'Hauptstraße', 2, 987654321, 0, '', '', NULL, NULL),
-(3, 'Peter', 'Müller', 'Herr', 'PM', 'Nebengasse', 3, 555555555, 0, '', '', NULL, NULL),
-(4, 'Sabine', 'Schulz', 'Frau', 'SS', 'Marktplatz', 4, 111111111, 0, '', '', NULL, NULL),
-(5, 'Michael', 'Meier', 'Herr', 'MM', 'Testweg', 5, 999999999, 0, '', '', NULL, NULL);
+INSERT INTO `tbl_dozent` (`PK_Dozent`, `Vorname`, `Nachname`, `Anrede`, `Kuerzel`, `Strasse`, `Hausnummer`, `Steuernummer`, `PLZ`, `Ort`, `Land`, `FK_Vertrag`) VALUES
+(1, 'Max', 'Mustermann', 'Herr', 'MM', 'Musterstraße', 1, 123456789, 0, '', '', NULL),
+(2, 'Anna', 'Schmidt', 'Frau', 'AS', 'Hauptstraße', 2, 987654321, 0, '', '', NULL),
+(3, 'Peter', 'Müller', 'Herr', 'PM', 'Nebengasse', 3, 555555555, 0, '', '', NULL),
+(4, 'Sabine', 'Schulz', 'Frau', 'SS', 'Marktplatz', 4, 111111111, 0, '', '', NULL),
+(5, 'Michael', 'Meier', 'Herr', 'MM', 'Testweg', 5, 999999999, 0, '', '', NULL);
 
 -- --------------------------------------------------------
 
@@ -277,8 +276,7 @@ ALTER TABLE `tbl_betrieb`
 --
 ALTER TABLE `tbl_dozent`
   ADD PRIMARY KEY (`PK_Dozent`),
-  ADD KEY `FK_Vertrag` (`FK_Vertrag`),
-  ADD KEY `FK_Kurs` (`FK_Kurs`);
+  ADD KEY `FK_Vertrag` (`FK_Vertrag`);
 
 --
 -- Indizes für die Tabelle `tbl_kurs`
@@ -369,11 +367,8 @@ ALTER TABLE `tbl_vertrag`
 --
 ALTER TABLE `tbl_dozent`
   ADD CONSTRAINT `tbl_dozent_ibfk_1` FOREIGN KEY (`FK_Vertrag`) REFERENCES `tbl_vertrag` (`PK_Vertrag`),
-  ADD CONSTRAINT `tbl_dozent_ibfk_3` FOREIGN KEY (`FK_Kurs`) REFERENCES `tbl_kurs` (`PK_Kurs`),
   ADD CONSTRAINT `tbl_dozent_ibfk_4` FOREIGN KEY (`FK_Vertrag`) REFERENCES `tbl_vertrag` (`PK_Vertrag`),
-  ADD CONSTRAINT `tbl_dozent_ibfk_6` FOREIGN KEY (`FK_Kurs`) REFERENCES `tbl_kurs` (`PK_Kurs`),
-  ADD CONSTRAINT `tbl_dozent_ibfk_7` FOREIGN KEY (`FK_Vertrag`) REFERENCES `tbl_vertrag` (`PK_Vertrag`),
-  ADD CONSTRAINT `tbl_dozent_ibfk_9` FOREIGN KEY (`FK_Kurs`) REFERENCES `tbl_kurs` (`PK_Kurs`);
+  ADD CONSTRAINT `tbl_dozent_ibfk_7` FOREIGN KEY (`FK_Vertrag`) REFERENCES `tbl_vertrag` (`PK_Vertrag`);
 
 --
 -- Constraints der Tabelle `tbl_kurs_dozent`
