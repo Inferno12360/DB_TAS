@@ -4,10 +4,75 @@
     <meta charset="UTF-8">
     <title>Datenbanktabelle</title>
 </head>
-<body>
+<style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 20px;
+            text-align: center;
+        }
 
+        h2 {
+            color: #333;
+        }
+
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        form {
+            margin-top: 20px;
+            text-align: left;
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 10px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+<body>
 <h2>Datenbanktabelle</h2>
 
+<form action="Teilnehmer_erstellen.html" method="post">
+    <button type="submit">Teilnehmer erstellen</button>
+    </form>
+    
 <table border="1">
     <tr>
         <th>ID</th>
@@ -25,7 +90,6 @@
     </tr>
 
     <?php
-    // Verbindung zur Datenbank herstellen (ersetze die Platzhalter mit deinen eigenen Daten)
     $host = 'localhost';
     $dbname = 'db_tas';
     $user = 'root';
@@ -67,53 +131,5 @@
         echo "Fehler: " . $e->getMessage();
     }
     ?>
-
-</table>
-         <form method='post' action='add.php'>  
-         <div class="form-group">
-         <label for="vorname">Vorname:</label>
-         <input type="text" id="vorname" name="vorname" >
-         </div>
-         <div class="form-group">
-         <label for="nachname">Nachname:</label>
-         <input type="text" id="nachname" name="nachname" >
-         </div>
-         <div class="form-group">
-         <label for="email">E-Mail:</label>
-         <input type="email" id="email" name="email" >
-         </div>
-         <div class="form-group">
-         <label for="telefon">Telefonnummer:</label>
-         <input type="tel" id="telefon" name="telefon" >
-         </div>
-         <label for="geschlecht">Geschlecht:</label>
-         <select id="geschlecht" name="geschlecht">
-         <option value="Herr">Herr</option>
-         <option value="Frau">Frau</option>
-        </div>
-         <label>Geschäftstyp:</label>
-         <input type="radio" id="privat" name="geschaeftstyp" value="privat" >
-         <label for="privat">Privat</label>
-         <input type="radio" id="firma" name="geschaeftstyp" value="firma" >
-         <label for="firma">Firma</label>
-         <div class="form-group">
-         <label for="Adresse">Straße</label>
-         <input type="text" id="Strasse"  placeholder="Musterstraße" name="Strasse" >
-         </div>
-         <div class="form-group">
-         <label for="Adresse">Nummer</label>
-         <input type="text" id="Nummer"  placeholder="6" name="NummerH" >
-         </div>
-         <div class="form-group">
-         <label for="Ort">Ort</label>
-         <input type="text" id="Ort"  placeholder="Land" name="Land" >
-         <input type="text" id="Ort"  placeholder="Stadt" name="Stadt" >
-         <input type="text" id="Ort"  placeholder="PLZ" name="PLZ" >
-         </div>
-         </select>
-         
-            <button type='submit'>hinzufügen</button>
-        </form>
-
 </body>
 </html>
