@@ -69,7 +69,7 @@
 <body>
 <h2>Datenbanktabelle</h2>
 
-<form action="Teilnehmer_erstellen.html" method="post">
+<form action="../Teilnehmer erstellen/Teilnehmer_erstellen.html" method="post">
     <button type="submit">Teilnehmer erstellen</button>
     </form>
     
