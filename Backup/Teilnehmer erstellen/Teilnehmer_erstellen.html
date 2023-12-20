@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8"></table>
+    <title>Teilnehmer erstellen</title>
+</head>
+<body>
+    <form method='post' value="zurück" action='../Teilnehmer Tabelle/Tabelle.php'>  
+             <div class="form-group">
+         <label for="vorname">Vorname:</label>
+         <input type="text" id="vorname" name="vorname" >
+         </div>
+         <div class="form-group">
+         <label for="nachname">Nachname:</label>
+         <input type="text" id="nachname" name="nachname" >
+         </div>
+         <div class="form-group">
+         <label for="email">E-Mail:</label>
+         <input type="email" id="email" name="email" >
+         </div>
+         <div class="form-group">
+         <label for="telefon">Telefonnummer:</label>
+         <input type="tel" id="telefon" name="telefon" >
+         </div>
+         <label for="geschlecht">Geschlecht:</label>
+         <select id="geschlecht" name="geschlecht">
+         <option value="Herr">Herr</option>
+         <option value="Frau">Frau</option>
+        </div>
+         <label>Geschäftstyp:</label>
+         <input type="radio" id="privat" name="geschaeftstyp" value="privat" >
+         <label for="privat">Privat</label>
+         <input type="radio" id="firma" name="geschaeftstyp" value="firma" >
+         <label for="firma">Firma</label>
+         <div class="form-group">
+         <label for="Adresse">Straße</label>
+         <input type="text" id="Strasse"  placeholder="Musterstraße" name="Strasse" >
+         </div>
+         <div class="form-group">
+         <label for="Adresse">Nummer</label>
+         <input type="text" id="Nummer"  placeholder="6" name="NummerH" >
+         </div>
+         <div class="form-group">
+         <label for="Ort">Ort</label>
+         <input type="text" id="Ort"  placeholder="Land" name="Land" >
+         <input type="text" id="Ort"  placeholder="Stadt" name="Stadt" >
+         <input type="text" id="Ort"  placeholder="PLZ" name="PLZ" >
+         </div>
+         </select>
+         
+            <button type='submit'>hinzufügen</button>
+                <button type="submit" value="zurück">zurück</button>
+        </form>
+    </body>
+    </html>
+    
