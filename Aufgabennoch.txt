@@ -1,0 +1,42 @@
+1. Formular fürs Anzeigen der neuen Teilnehmer (Er muss die noch Bestätigen) (Dashbord)(Status in der Datenbank) = Tom/Siggi(Schölli)
+2. Tabelle mit allen Teilnehmer (Dashbord)(status der Teilnehmer) = ""
+
+3.Rechnung erstellen (an Betrieb und Herr Linden) (Daten eintragen) (Mit Convert to pdf) = Hendrik
+4.Erinnerung das Rechnung noch nicht Bezahlt sind (Unbezahlte Rechnung) (Dashbord) = Hendrik
+
+5.Formular für Kurse erstellen (einmal im Jahr)(nicht richtig löschen(kurs nicht sichtbar) und richtig löschen) = Marius
+
+6.Dozent Formular (aber nicht richtig löschen) = Hendrik
+  -Aktive Dozenten und Alle Dozente (mit halb gelöscht und extra spalte mit richtig löschen)
+  -Vergangene Kurse
+7.AnmeldeFormular = Hendrik
+
+8. Kursliste -> Button zum Anzeigen aller Teilnehmer des Kurses(da kommt button Rechnung rein) (Rechnungscript übergibt nur Kursnummer) (Spalte Akutelle Kurse / Alte Kurse)
+(Kurse nicht komplett löschen im Hintergrund speichern)
+9. Extra tag irgendwo um anzeigen zu lassen das Rechnung erstellt wurde.
+
+1. Button zurück fehlt / update geht garnicht
+2. Status fehlt
+
+
+
+
+Pichola besprechung:
+Dashbord=
+Kurse: Es geht Seite auf mit Aktiven Kurse(button mit Bearbeiten)/ Zukünftige Kurse / Alte Kurse(Archiviert) : Alle Teilnehmer Anzeigen lassen (Rechnung erstellen) :
+(Teilnehmer Bearbeiten mit neuer Seite)
+
+------------------------------------------------------------------------------------------------------------------
+
+1. Teilnehmer Tabelle = Teilnehmer such button (Zentrieren) / andere Sortierung (Kursnummer oder Alphabetisch) / Teilnehmer nicht direkt löschen um den zurück bringen zu können(und extra lösch lösch button)
+2. Kurs Tabelle = Kurse müssen gelöscht werden können / Dozent anzeigen + Dozent hinzufügen / Rechnung fertig machen / 
+Rechnungserstellen für alle Teilnehmer (mit true und false damit das automisch sortiert wird) / Mahnung erstellen wenn zu lange nicht gezahlt wird (Simulation mit EMail schicken/
+3. Ausgelesene Teilnehmer aus bestimmten Kurs = Dozent rein 
+4. =Dozent anzeigen lassen mit allen Daten (honoravertrag oder minijobvertrag)
+5. Tabelle von Betrieben weiter machen
+6. Teilnehmer kurse zuweisen (Kurse ändern im Teilnehmer (kurs wechseln))
+7. Dokumentation
+
+
+
+
