@@ -28,14 +28,14 @@ Kurse: Es geht Seite auf mit Aktiven Kurse(button mit Bearbeiten)/ Zukünftige K
 
 ------------------------------------------------------------------------------------------------------------------
 
-1. Teilnehmer Tabelle = Teilnehmer such button (Zentrieren) / andere Sortierung (Kursnummer oder Alphabetisch) / Teilnehmer nicht direkt löschen um den zurück bringen zu können(und extra lösch lösch button)
+1. Teilnehmer Tabelle = Teilnehmer such button (Zentrieren) / andere Sortierung (Kursnummer oder Alphabetisch) / Teilnehmer nicht direkt löschen um den zurück bringen zu können(und extra lösch lösch button) = Tom und Siggi
 2. Kurs Tabelle = Kurse müssen gelöscht werden können / Dozent anzeigen + Dozent hinzufügen / Rechnung fertig machen / 
-Rechnungserstellen für alle Teilnehmer (mit true und false damit das automisch sortiert wird) / Mahnung erstellen wenn zu lange nicht gezahlt wird (Simulation mit EMail schicken/
-3. Ausgelesene Teilnehmer aus bestimmten Kurs = Dozent rein 
-4. =Dozent anzeigen lassen mit allen Daten (honoravertrag oder minijobvertrag)
-5. Tabelle von Betrieben weiter machen
-6. Teilnehmer kurse zuweisen (Kurse ändern im Teilnehmer (kurs wechseln))
-7. Dokumentation
+Rechnungserstellen für alle Teilnehmer (mit true und false damit das automisch sortiert wird) / Mahnung erstellen wenn zu lange nicht gezahlt wird (Simulation mit EMail schicken/ = Hendrik
+3. Ausgelesene Teilnehmer aus bestimmten Kurs = Dozent rein = Schölli
+4. =Dozent anzeigen lassen mit allen Daten (honoravertrag oder minijobvertrag) = Marius
+5. Tabelle von Betrieben weiter machen = Tom und Siggi
+6. Teilnehmer kurse zuweisen (Kurse ändern im Teilnehmer (kurs wechseln)) = Schölli
+7. Dokumentation = Maurice
 
 
 
