@@ -65,13 +65,24 @@
         button:hover {
             background-color: #45a049;
         }
+
+        .teb{
+            text-align: center;
+        }
+        
+        .centered-button {
+            padding: 10px 20px;
+            font-size: 16px;
+        }
     </style>
 <body>
 <h2>Datenbanktabelle</h2>
 
 <form action="../Teilnehmer erstellen/Teilnehmer_erstellen.html" method="post">
-    <button type="submit">Teilnehmer erstellen</button>
-    </form>
+    <div class="teb"> 
+        <button type="submit" class="centered-button">Teilnehmer erstellen</button>
+    </div>
+</form>
     
 <table border="1">
     <tr>
